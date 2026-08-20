@@ -1,0 +1,71 @@
+@model EmployeeManagementSystem.ViewModels.CreateEmployeeViewModel
+
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+<h1>Create Employee</h1>
+
+<form asp-controller="Employees" asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="FirstName" class="form-label"></label>
+        <input asp-for="FirstName" class="form-control"/>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Position" class="form-label"></label>
+        <input asp-for="Position" class="form-control" />
+        <span asp-validation-for="Position" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DepartmentId" class="form-label">Department</label>
+        <select asp-for="DepartmentId" asp-items="Model.Departments" class="form-select">
+            <option value="">-- Select Department --</option>
+        </select>
+        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="JobTitleId" class="form-label">Job Title</label>
+        <select asp-for="JobTitleId" asp-items="Model.JobTitles" class="form-select">
+            <option value="">-- Select Job Title --</option>
+        </select>
+        <span asp-validation-for="JobTitleId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Salary" class="form-label"></label>
+        <input asp-for="Salary" class="form-control" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+
+    <a asp-controller="Employees" asp-action="Index" class="btn btn-secondary">
+        Back to List
+    </a>
+</form>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

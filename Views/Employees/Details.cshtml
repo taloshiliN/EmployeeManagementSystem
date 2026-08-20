@@ -1,0 +1,45 @@
+
+@model EmployeeManagementSystem.Models.Employee
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<h1>Employee Details</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">@Model.FirstName @Model.LastName</h4>
+
+        <dl class="row">
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+
+            <dt class="col-sm-3">Position</dt>
+            <dd class="col-sm-9">@Model.Position</dd>
+
+            <dt class="col-sm-3">Department</dt>
+            <dd class="col-sm-9">@Model.Department?.DepartmentName</dd>
+
+            <dt class="col-sm-3">Job Title</dt>
+            <dd class="col-sm-9">@Model.JobTitle?.Title</dd>
+
+            <dt class="col-sm-3">Salary</dt>
+            <dd class="col-sm-9">@Model.Salary.ToString("C")</dd>
+        </dl>
+
+        <a class="btn btn-warning"
+            asp-controller="Employees"
+            asp-action="Edit"
+            asp-route-id="@Model.Id"
+        >
+        Edit
+        </a>
+
+        <a class="btn btn-warning"
+            asp-controller="Employees"
+            asp-action="Index"
+        >
+        Back to List
+        </a>
+    </div>
+</div>

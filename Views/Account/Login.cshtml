@@ -1,0 +1,43 @@
+@model EmployeeManagementSystem.ViewModels.LoginViewModel
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="auth-page-body">
+    <main class="login-page">
+        <form asp-controller="Account" asp-action="Login" method="post" class="login-form">
+            <input asp-for="ReturnUrl" type="hidden" />
+            @* <div class="">
+            </div> *@
+            <div asp-validation-summary="ModelOnly" class="login-error" role="alert"></div>
+
+            <div class="login-field">
+                <label asp-for="Email" class="visually-hidden"></label>
+                <input asp-for="Email" class="login-input" placeholder="Email" autocomplete="email" />
+                <span asp-validation-for="Email"></span>
+            </div>
+
+            <div class="login-field">
+                <label asp-for="Password" class="visually-hidden"></label>
+                <input asp-for="Password" class="login-input" placeholder="Password" autocomplete="current-password" />
+                <span asp-validation-for="Password"></span>
+            </div>
+
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
