@@ -1,4 +1,6 @@
 # Employee Management System
+repo:
+https://github.com/taloshiliN/EmployeeManagementSystem
 
 An ASP.NET Core 9 template that pairs a server-rendered MVC admin UI with a token-secured REST API over the same domain services. Built as a reusable starting point for CRUD-style line-of-business apps.
 
